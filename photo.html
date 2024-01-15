@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Photos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="photo.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo"><a href="index.html">PREM DESIGN</a></div>
+                <ul class="navlink">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="info.html">About</a></li>
+                    <li><a href="#">Design</a></li>
+                    <li><a href="photo.html">Photo</a></li>  
+                </ul>
+            </div>
+        </nav>
+        
+
+        <div class="slider">
+            <div class="slides">
+              <div class="slide"><img src="sky1.jpg" class="img1" alt="Image 1"></div>
+              <div class="slide"><img src="ganesh.jpg" class="img2" alt="Image 2"></div>
+              <div class="slide"><img src="fog.jpg" class="img3" alt="Image 3"></div>
+              <div class="slide"><img src="sky2.jpg" class="img4" alt="Image 4"></div>
+            </div>
+            <button class="slider-btn prev" onclick="prevSlide()">❮</button>
+            <button class="slider-btn next" onclick="nextSlide()">❯</button>
+          </div>
+          <ul class="photos">
+            <li><a href="https://drive.google.com/drive/folders/1mIV6Ck8U9O0ARIO9EGHhspliz-7p-mIy?usp=drive_link">
+                More Photo</a></li>
+          </ul>
+
+          <script>
+            let currentSlide = 0;
+          
+            function showSlide(index) {
+              const slides = document.querySelector('.slides');
+              const totalSlides = document.querySelectorAll('.slide').length;
+          
+              if (index >= totalSlides) {
+                currentSlide = 0;
+              } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+              } else {
+                currentSlide = index;
+              }
+          
+              slides.style.transform = `translateX(${-currentSlide * 100}%)`;
+            }
+          
+            function prevSlide() {
+              showSlide(currentSlide - 1);
+            }
+          
+            function nextSlide() {
+              showSlide(currentSlide + 1);
+            }
+          </script>
+    </body>
+</html>
